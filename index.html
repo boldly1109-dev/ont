@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>온트 ONT | AI로 넓혀가는 나의 가능성</title>
+<meta name="description" content="코딩 몰라도 괜찮아요. 비개발자 워킹맘이 AI로 직접 만든 툴과 무료 템플릿, 그리고 하나의 꿈을 향한 시도의 기록.">
+<meta name="keywords" content="온트, ONT, 비개발자 AI, 워킹맘 AI 활용, 클로드 AI, AI 템플릿 무료, 생활 자동화, 유치원 모집 현황">
+<link rel="canonical" href="https://ont.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="온트 ONT | 하나의 꿈, 무한한 시도">
+<meta property="og:description" content="비개발자 워킹맘이 AI로 직접 만든 툴과 무료 템플릿을 모았어요.">
+<meta property="og:url" content="https://ont.vercel.app/">
+<meta property="og:image" content="https://ont.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "온트 ONT",
+  "alternateName": "ONT",
+  "url": "https://ont.vercel.app/",
+  "description": "비개발자 워킹맘이 AI로 일상과 일을 개선하며 꿈을 향해 도전하는 기록",
+  "slogan": "하나의 꿈, 무한한 시도"
+}
+</script>
+<style>
+  :root{
+    --cream:#F7F3EA; --paper:#FFFDF8; --ink:#2B2620; --sub:#6E655A;
+    --line:#E6DECF; --yellow:#FFE27A; --yellow-soft:#FFF3C4; --brown:#8A6A45;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;word-break:keep-all}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  mark{background:linear-gradient(transparent 55%,var(--yellow) 55%);color:inherit;padding:0 2px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:10;background:rgba(247,243,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:800;font-size:20px;letter-spacing:.04em}
+  .logo span{color:var(--brown);font-weight:600;font-size:14px;margin-left:6px}
+  .nav ul{display:flex;gap:20px;list-style:none;font-size:15px;color:var(--sub)}
+  .nav ul a:hover{color:var(--ink)}
+
+  /* hero */
+  .hero{padding:80px 20px 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+  .hero-video{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:28px;border:1px solid var(--line);background:var(--paper)}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--brown);background:var(--yellow-soft);padding:4px 12px;border-radius:999px;margin-bottom:20px}
+  .hero h1{font-size:clamp(34px,6vw,56px);line-height:1.25;font-weight:800;letter-spacing:-.02em}
+  .hero p.lead{margin-top:20px;font-size:18px;color:var(--sub);max-width:560px}
+  .name-note{font-size:14px;color:var(--sub);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .name-note b{color:var(--brown)}
+  .cta-row{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:14px 22px;border-radius:12px;font-weight:700;font-size:15px}
+  .btn-primary{background:var(--ink);color:var(--cream)}
+  .btn-ghost{border:1.5px solid var(--ink)}
+
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .sec-title{font-size:13px;font-weight:700;color:var(--brown);letter-spacing:.12em;text-transform:uppercase}
+  h2{font-size:clamp(24px,4vw,32px);font-weight:800;margin:8px 0 12px;letter-spacing:-.01em}
+  .sec-desc{color:var(--sub);margin-bottom:32px}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .about-grid p{margin-bottom:14px}
+  .note{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .note li{list-style:none;padding:8px 0;border-bottom:1px dashed var(--line)}
+  .note li:last-child{border:0}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+  a.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(43,38,32,.08)}
+  .card .icon{font-size:30px}
+  .tag{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
+  .tag.live{background:#E3F1DF;color:#3D6B33}
+  .tag.soon{background:var(--yellow-soft);color:var(--brown)}
+  .card h3{font-size:19px;margin:12px 0 6px}
+  .card p{color:var(--sub);font-size:15px;flex:1}
+  .card .why{margin-top:14px;font-size:14px;background:var(--cream);border-radius:10px;padding:10px 12px}
+  .card .go{margin-top:14px;font-weight:700;font-size:14px}
+  .card.feature{max-width:640px}
+  .flow{margin:14px 0 0;padding-left:20px;color:var(--ink);font-size:15px}
+  .flow li{padding:3px 0}
+  .more{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .more li{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:15px;font-weight:600;color:var(--sub)}
+
+  /* template */
+  .tpl{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}
+  .video{aspect-ratio:16/9;background:var(--paper);border:1.5px dashed var(--line);border-radius:18px;display:flex;align-items:center;justify-content:center;color:var(--sub);text-align:center;font-size:14px;padding:20px}
+  .guide-card{display:flex;flex-direction:column;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+  .guide-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(43,38,32,.08)}
+  .guide-card .gc-icon{font-size:36px}
+  .guide-card b{font-size:20px}
+  .guide-card span{color:var(--sub);font-size:15px}
+  .guide-card .go{color:var(--ink);font-weight:700;font-size:14px;margin-top:6px}
+  .video iframe{width:100%;height:100%;border:0;border-radius:18px}
+  .tpl-box{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px}
+  .tpl-box h3{font-size:20px;margin-bottom:8px}
+  .steps{counter-reset:s;margin:16px 0 20px}
+  .steps li{list-style:none;counter-increment:s;padding:6px 0 6px 34px;position:relative;font-size:15px}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:6px;width:24px;height:24px;border-radius:50%;background:var(--yellow);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .tpl-box .btn{width:100%;text-align:center;margin-top:8px}
+  .small{font-size:13px;color:var(--sub);margin-top:10px;text-align:center}
+
+  /* log */
+  .log li{list-style:none;display:flex;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+  .log .ep{font-weight:800;color:var(--brown);min-width:58px}
+  .log .t{flex:1;font-weight:600}
+  .log .d{font-size:14px;color:var(--sub)}
+  .log .soon{color:var(--sub);font-weight:400}
+
+  /* subscribe */
+  .sub{background:var(--ink);color:var(--cream);border-radius:24px;padding:44px 32px;text-align:center}
+  .sub h2{color:var(--cream)}
+  .sub p{opacity:.8;margin-bottom:24px}
+  .sub .btn{background:var(--yellow);color:var(--ink)}
+
+  footer{padding:40px 0 56px;color:var(--sub);font-size:14px;text-align:center}
+  footer a{text-decoration:underline}
+
+  @media (max-width:720px){
+    .nav ul{gap:14px;font-size:14px}
+    .nav ul li:nth-child(4){display:none}
+    .hero{padding:48px 20px 48px;grid-template-columns:1fr;gap:28px}
+    .hero-video{max-width:360px}
+    .about-grid,.cards,.tpl{grid-template-columns:1fr}
+    .log li{flex-wrap:wrap;gap:4px 12px}
+    .log .d{width:100%;padding-left:70px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo">ONT<span>온트</span></a>
+    <ul>
+      <li><a href="#about">소개</a></li>
+      <li><a href="#works">만든 것들</a></li>
+      <li><a href="#template">템플릿</a></li>
+      <li><a href="#log">기록</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="wrap hero">
+   <div class="hero-text">
+    <span class="eyebrow">하나의 꿈, 무한한 시도</span>
+    <h1>코딩 못해요.<br><mark>그래도 만들어요.</mark></h1>
+    <p class="lead">22년생 아들을 키우는 비개발자 워킹맘이 AI로 일상과 일을 하나씩 바꿔가는 기록이에요. 직접 만들고, 실제로 쓰는 것만 올려요.</p>
+    <div class="cta-row">
+      <a href="#template" class="btn btn-primary">무료 템플릿 받기</a>
+      <a href="#works" class="btn btn-ghost">만든 것들 보기</a>
+    </div>
+   </div>
+   <video class="hero-video" src="desk.mp4" autoplay muted loop playsinline onerror="this.style.display='none'" aria-label="저녁마다 책상에서 노트북으로 무언가 만드는 엄마 일러스트"></video>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <p class="sec-title">About</p>
+      <h2>개발자 아니고, 엄마예요</h2>
+      <div class="about-grid">
+        <div>
+          <p>코드는 한 줄도 몰랐어요. "오늘 뭐 먹지" 고민에 지쳐 AI한테 물어보며 첫 도구를 만들었어요.</p>
+          <p>AI 네이티브 세대인 우리 아이에게, <mark>현실에서 쓰는 AI</mark>를 엄마가 직접 보여주고 싶었어요.</p>
+          <p>저처럼 코딩 모르는 사람도 그대로 따라 할 수 있게 정리해요.</p>
+          <p class="name-note"><b>ONT 온트</b>는 <b>O</b>ne + <b>N</b> + <b>T</b>ry, 하나의 꿈을 향해 무수히 많은 방법을 시도한다는 뜻이에요.</p>
+        </div>
+        <ul class="note">
+          <li>👩‍👦 4살 아들 키우는 워킹맘</li>
+          <li>🧰 AI로 직접 만든 툴 5개+</li>
+          <li>📚 들은 AI 강의 3개, 나머지는 직접 부딪히며</li>
+          <li>🎯 "직접 써보고 실제로 쓰는 것만"</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section id="works">
+    <div class="wrap">
+      <p class="sec-title">Portfolio</p>
+      <h2>지금까지 만든 것들</h2>
+      <p class="sec-desc">우리 집 문제에서 시작해 실제로 쓰고 있는 도구들이에요.</p>
+      <a class="card feature" href="guide.html">
+        <div class="icon">🍽️</div>
+        <h3>밀플랜 <span class="tag live">사용 중</span></h3>
+        <p>"뭐 먹지?" "장은 뭐 사야 하지?" 고민을 한 번에 끝내는 식단 관리 도구예요.</p>
+        <ol class="flow">
+          <li>저장해둔 인스타 레시피 링크를 복붙하면 레시피가 정리돼요</li>
+          <li>이번 주 메뉴를 고르면</li>
+          <li>장볼 내용이 자동으로 완성돼요</li>
+        </ol>
+        <div class="why"><b>왜 만들었나</b> · 일하면서도 매일 두 끼 집밥을 먹고 싶어서</div>
+        <span class="go">가이드북 보기 →</span>
+      </a>
+      <ul class="more">
+        <li>🏫 유치원 현황</li>
+        <li>💰 우리집 돈관리</li>
+        <li>🔏 비밀 사인</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TEMPLATE -->
+  <section id="template">
+    <div class="wrap">
+      <p class="sec-title">Free Template</p>
+      <h2>무료 템플릿, 써보고 알려주세요</h2>
+      <p class="sec-desc">비개발자 워킹맘이 직접 만든 템플릿이에요. 솔직한 피드백은 다음 버전에 그대로 반영해요.</p>
+      <div class="tpl">
+        <a class="guide-card" href="guide.html">
+          <span class="gc-icon">📖</span>
+          <b>밀플랜 가이드북</b>
+          <span>준비물부터 폰에서 앱처럼 쓰기까지, 따라 하기만 하면 되게 정리했어요.</span>
+          <span class="go">가이드북 보기 →</span>
+        </a>
+        <div class="tpl-box">
+          <h3>🍽️ 밀플랜 템플릿</h3>
+          <p style="color:var(--sub);font-size:15px">인스타 레시피 링크만 넣으면 일주일 식단과 장보기 리스트가 자동으로. 제가 모은 레시피도 들어 있어요.</p>
+          <ol class="steps">
+            <li>버튼 눌러 내 드라이브에 사본 만들기</li>
+            <li>가이드북 보고 키 2개 넣기</li>
+            <li>메뉴 고르고 장보기 끝!</li>
+          </ol>
+          <a href="https://docs.google.com/spreadsheets/d/19jRhz1HanJr8KiAf9WsMdBTb_LFuGxJ2bA9SaTb6Pzk/copy" class="btn btn-primary" target="_blank" rel="noopener">템플릿 받기</a>
+          <a href="https://ig.me/m/hello.ont" class="btn btn-ghost" target="_blank" rel="noopener">써보고 DM으로 후기 보내기</a>
+          <p class="small">보내주신 후기는 다음 버전에 그대로 반영해요</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOG -->
+  <section id="log">
+    <div class="wrap">
+      <p class="sec-title">Log</p>
+      <h2>시도의 기록</h2>
+      <p class="sec-desc">하나씩 만들 때마다 과정을 남겨요.</p>
+      <ul class="log">
+        <li><span class="ep">EP.01</span><a class="t" href="https://finding-better.vercel.app/posts/%EC%8B%9D%EB%8B%A8-%EC%9E%90%EB%8F%99%ED%99%94.html" target="_blank" rel="noopener">AI에게 우리 집 식단 자동화를 맡기는 법</a><span class="d">2026.08</span></li>
+        <li><span class="ep">EP.02</span><span class="t soon">다음 이야기, 곧 올라와요</span><span class="d">준비 중</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE -->
+  <div class="wrap" style="padding:24px 20px 0">
+    <div class="sub">
+      <h2>새 템플릿이 나오면 인스타에 먼저 올려요</h2>
+      <p>직접 만들고 매일 쓰는 것만 나눠요.</p>
+      <a href="https://instagram.com/hello.ont" class="btn" target="_blank" rel="noopener">@hello.ont 팔로우하기</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>ONT 온트</b> · 하나의 꿈, 무한한 시도</p>
+    <p>협업 문의 <a href="mailto:suha.in.touch@gmail.com">suha.in.touch@gmail.com</a> · 인스타그램 <a href="https://instagram.com/hello.ont" target="_blank" rel="noopener">@hello.ont</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

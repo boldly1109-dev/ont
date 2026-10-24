@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>밀플랜 가이드북 | 온트 ONT</title>
+<meta name="description" content="템플릿 복사하고 인스타 레시피 링크만 넣으면 일주일 식단과 장보기 리스트가 자동으로. 비개발자 워킹맘이 만든 밀플랜 템플릿 사용 가이드.">
+<meta property="og:title" content="밀플랜 가이드북 | 온트 ONT">
+<meta property="og:description" content="인스타 레시피 링크만 넣으면 식단과 장보기 리스트가 자동으로. 비개발자 워킹맘이 만든 가이드.">
+<meta property="og:locale" content="ko_KR">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#FFFDF8; --cream:#F7F3EA; --ink:#2B2620; --sub:#6E655A; --line:#ECE5D8;
+    --yellow:#FFE27A; --yellow-soft:#FFF6D6; --brown:#8A6A45; --code:#F4EFE4; --green:#EAF3E6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;word-break:keep-all;font-size:16px}
+  a{color:inherit}
+  .top{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid var(--line);font-size:14px;color:var(--sub);position:sticky;top:0;background:rgba(255,253,248,.94);backdrop-filter:blur(6px);z-index:5}
+  .top a{text-decoration:none}
+  .crumb b{color:var(--ink);font-weight:600}
+  .cover{height:180px;background:linear-gradient(135deg,#F7EBCB 0%,#F3E4D2 50%,#EFE6DA 100%)}
+  .page{max-width:720px;margin:0 auto;padding:0 20px 96px}
+  .icon{font-size:72px;line-height:1;margin-top:-40px}
+  h1{font-size:clamp(30px,6vw,40px);font-weight:800;letter-spacing:-.02em;margin:16px 0 8px}
+  .meta{font-size:14px;color:var(--sub);margin-bottom:28px}
+  h2{font-size:24px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em}
+  p{margin:8px 0}
+  mark{background:linear-gradient(transparent 58%,var(--yellow) 58%);color:inherit;padding:0 2px}
+  .callout{display:flex;gap:12px;background:var(--cream);border-radius:10px;padding:16px 18px;margin:16px 0}
+  .callout .ci{font-size:20px;line-height:1.6}
+  .callout.yellow{background:var(--yellow-soft)}
+  .callout.green{background:var(--green)}
+  details{border-radius:8px;margin:6px 0}
+  summary{cursor:pointer;list-style:none;padding:10px 12px;border-radius:8px;font-weight:600;display:flex;align-items:center;gap:10px}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"▸";color:var(--sub);font-size:13px;transition:transform .15s;display:inline-block;width:12px}
+  details[open] summary::before{transform:rotate(90deg)}
+  summary:hover{background:var(--cream)}
+  .tog{padding:4px 12px 12px 34px}
+  .tog ul,.tog ol{padding-left:20px}
+  .tog li{margin:4px 0}
+  .code{position:relative;background:var(--code);border-radius:10px;margin:14px 0;border:1px solid var(--line)}
+  .code pre{white-space:pre-wrap;word-break:keep-all;padding:18px 18px 18px;font-family:"SF Mono",ui-monospace,Menlo,Consolas,Pretendard,monospace;font-size:14px;line-height:1.7;color:#3A332B}
+  .code .bar{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 0 18px;font-size:12px;color:var(--sub)}
+  .copy{border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer;color:var(--ink)}
+  .copy.done{background:var(--ink);color:var(--bg)}
+  code{background:var(--code);border-radius:4px;padding:1px 5px;font-size:14px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+  th{background:var(--cream);font-weight:600}
+  td:first-child{white-space:nowrap;font-weight:600}
+  ol.rules{padding-left:22px}
+  ol.rules li{margin:10px 0}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0;font-weight:600}
+  .flow span{background:var(--cream);border-radius:999px;padding:8px 14px;font-size:15px}
+  .flow i{font-style:normal;color:var(--sub)}
+  .tpl-btn{display:inline-block;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:700;padding:14px 22px;border-radius:12px;margin:8px 0 6px}
+  .tpl-btn:hover{opacity:.9}
+  .end-btns{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:14px}
+  .end .end-btns a{margin-top:0}
+  .end a.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .credit{margin-top:22px;font-size:13px}
+  hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+  .end{text-align:center;color:var(--sub);font-size:14px}
+  .end a{display:inline-block;margin-top:12px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:700;padding:12px 20px;border-radius:10px}
+  @media (max-width:560px){ .cover{height:120px} .icon{font-size:56px;margin-top:-30px} td:first-child{white-space:normal} }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <span class="crumb"><a href="index.html">ONT 온트</a> / <b>밀플랜 가이드북</b></span>
+  <a href="https://docs.google.com/spreadsheets/d/19jRhz1HanJr8KiAf9WsMdBTb_LFuGxJ2bA9SaTb6Pzk/copy" target="_blank" rel="noopener">템플릿 받기 →</a>
+</div>
+<div class="cover"></div>
+
+<main class="page">
+  <div class="icon">🍽️</div>
+  <h1>밀플랜 가이드북</h1>
+  <p class="meta">템플릿 사용 가이드 · 비개발자 워킹맘이 직접 만들고 매일 쓰는 식단 관리 · 온트 ONT</p>
+
+  <p>코딩 몰라도 괜찮아요. <b>제가 만든 템플릿을 복사해서 바로 쓰시면 돼요.</b><br>제가 모은 레시피도 이미 들어 있어요.</p>
+
+  <h2>이게 뭐예요?</h2>
+  <p>"뭐 먹지?" "장은 뭐 사야 하지?" 매번 고민되시죠. 인스타에서 저장한 레시피는 많은데 다시 찾기도 어렵고요.</p>
+  <p>이 템플릿은 그 고민을 대신 해주는 <mark>우리 집 식단 관리표</mark>예요.</p>
+  <div class="flow"><span>🔗 인스타 레시피 링크 넣기</span><i>→</i><span>✅ 먹고 싶은 메뉴 체크</span><i>→</i><span>🛒 식단 · 장보기 리스트 자동 완성</span></div>
+  <p>냉장고에 있는 재료까지 반영해서 일주일 식단을 짜고, 없는 재료만 장보기 리스트에 채워줘요.</p>
+
+  <h2>준비물</h2>
+  <div class="callout"><span class="ci">📋</span><div><b>클로드 계정</b>, <b>구글 계정</b>, <b>클로드 API 키</b>, <b>Apify 토큰</b> 4가지를 준비하세요. 없다면 아래를 펼쳐서 차례대로 만들어 주세요.</div></div>
+  <details>
+    <summary>1️⃣ 클로드 시작하기</summary>
+    <div class="tog">
+      <p><b>1단계. 사이트 들어가서 가입하기</b></p>
+      <ul>
+        <li>주소창에 <b>claude.ai</b> 입력 → 접속</li>
+        <li><b>"Sign up"</b> 버튼 클릭 → 구글 계정으로 가입 (제일 빠르고 쉬워요!)</li>
+      </ul>
+      <p><b>2단계. 채팅창에 질문하기</b></p>
+      <ul>
+        <li>가입 후 나오는 하얀 채팅창에 궁금한 걸 물어보면 끝!</li>
+        <li>예시: "초등학생도 이해하게 화산이 왜 폭발하는지 설명해줘"</li>
+      </ul>
+      <p style="color:var(--sub);font-size:15px">템플릿을 쓰다 막히거나 우리 집에 맞게 바꾸고 싶을 때 클로드에게 물어보면 돼요.</p>
+    </div>
+  </details>
+  <details>
+    <summary>2️⃣ 구글 계정 만들기</summary>
+    <div class="tog">
+      <ul>
+        <li>sheets.google.com 접속 → "계정 만들기" 클릭</li>
+        <li>이름·생년월일·Gmail 주소·비밀번호 설정 (약 5분)</li>
+        <li>한 번 만들면 지메일, 문서, 드라이브까지 같은 계정으로 써요</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>3️⃣ 클로드 API 키 발급받기</summary>
+    <div class="tog">
+      <p>API 키는 템플릿이 <b>레시피를 정리하고 식단을 짤 때</b> 클로드를 부르는 <mark>나만의 비밀 열쇠</mark>예요.</p>
+      <ol>
+        <li><b>console.anthropic.com</b> 접속 → 가입 (클로드 계정과 같은 이메일로 해도 돼요)</li>
+        <li>왼쪽 메뉴 <b>Billing(결제)</b>에서 크레딧을 소액 충전해요</li>
+        <li>왼쪽 메뉴 <b>API Keys</b> → <b>Create Key</b> → 이름은 "밀플랜" 정도로</li>
+        <li>나온 키(<code>sk-ant-</code>로 시작)를 <b>바로 복사해서 메모장에 저장</b>해요. 창을 닫으면 다시 볼 수 없어요</li>
+      </ol>
+      <div class="callout yellow"><span class="ci">⚠️</span><div>
+        <b>클로드 앱 구독과 API는 결제가 따로예요.</b> 구독 중이어도 API 크레딧은 별도로 충전해야 해요. 쓴 만큼만 차감돼요.<br>
+        <b>API 키는 절대 다른 사람에게 보여주지 마세요.</b> 내 크레딧이 쓰일 수 있어요. 노출됐다면 콘솔에서 바로 삭제하고 새로 만드세요.
+      </div></div>
+    </div>
+  </details>
+
+  <details>
+    <summary>4️⃣ Apify 토큰 발급받기</summary>
+    <div class="tog">
+      <p>Apify는 템플릿이 <b>인스타 게시물의 캡션(레시피 글)을 읽어올 때</b> 쓰는 도구예요. 인스타는 로그인 없이 내용을 잘 안 보여줘서, 이 도구가 대신 읽어와요.</p>
+      <ol>
+        <li><b>apify.com</b> 접속 → <b>Sign up</b> (구글 계정으로 가입하면 빨라요)</li>
+        <li>로그인 후 오른쪽 위 <b>Settings</b> → <b>Integrations</b> (또는 API & Integrations)</li>
+        <li><b>API token</b> 옆 복사 버튼을 눌러 메모장에 저장해요</li>
+      </ol>
+      <div class="callout yellow"><span class="ci">⚠️</span><div>
+        Apify는 <b>매달 무료로 쓸 수 있는 한도</b>가 있고, 넘으면 비용이 생겨요. 한도는 Apify 요금 페이지에서 확인하세요.<br>
+        <b>토큰도 API 키처럼 절대 다른 사람에게 보여주지 마세요.</b>
+      </div></div>
+    </div>
+  </details>
+
+  <h2>1단계 · 템플릿 내 것으로 복사하기</h2>
+  <a class="tpl-btn" href="https://docs.google.com/spreadsheets/d/19jRhz1HanJr8KiAf9WsMdBTb_LFuGxJ2bA9SaTb6Pzk/copy" target="_blank" rel="noopener">📋 밀플랜 템플릿 사본 만들기</a>
+  <ol class="rules">
+    <li>위 버튼을 누르면 <b>"문서 사본을 만드시겠습니까?"</b> 화면이 열려요</li>
+    <li><b>사본 만들기</b>를 누르면 내 구글 드라이브에 저장돼요</li>
+    <li>이름은 마음대로 바꿔도 괜찮아요 (탭 이름만 바꾸지 마세요)</li>
+  </ol>
+  <div class="callout yellow"><span class="ci">💡</span><div>꼭 <b>사본</b>에서 작업하세요. 사본은 온전히 내 것이라 마음껏 써도 다른 사람에게 보이지 않아요.</div></div>
+
+  <h2>2단계 · 처음 한 번만 하는 설정</h2>
+  <p><b>① 키 2개 넣기</b></p>
+  <ol class="rules">
+    <li>사본 위쪽 메뉴에서 <b>확장 프로그램 → Apps Script</b>를 눌러요</li>
+    <li>왼쪽 톱니바퀴 <b>프로젝트 설정</b> → 맨 아래 <b>스크립트 속성 추가</b></li>
+    <li>속성 <code>CLAUDE_API_KEY</code> / 값: 클로드 API 키 → 한 줄 더 추가해서 속성 <code>APIFY_API_TOKEN</code> / 값: Apify 토큰 → <b>저장</b></li>
+  </ol>
+  <div class="callout yellow"><span class="ci">💡</span><div>속성 이름은 <b>대문자·밑줄까지 똑같이</b> 적어야 해요. 위 글자를 그대로 복사해서 붙여넣으세요.</div></div>
+
+  <p style="margin-top:22px"><b>② 메뉴 열고 권한 허용하기</b></p>
+  <ol class="rules">
+    <li>시트로 돌아와 <b>새로고침</b>하면 위쪽에 <b>🍽 식단 자동화</b> 메뉴가 생겨요 (몇 초 걸릴 수 있어요)</li>
+    <li>메뉴에서 아무 기능이나 처음 누르면 <b>"승인 필요"</b> 창이 떠요 → <b>계속 → 내 계정 선택</b></li>
+    <li>"Google에서 확인하지 않은 앱" 화면이 나오면 <b>고급 → 밀플랜(으)로 이동(안전하지 않음)</b> → <b>허용</b></li>
+  </ol>
+  <div class="callout"><span class="ci">🙋‍♀️</span><div>무섭게 생긴 경고지만, 내가 복사한 내 시트가 내 계정에서 돌아가도 되냐고 묻는 거예요. 처음 한 번만 나와요.</div></div>
+
+  <p style="margin-top:22px"><b>③ 매주 자동으로 식단 받기 (선택)</b></p>
+  <p><b>🍽 식단 자동화 → 자동 실행 스케줄 재설정</b>을 누르면 매주 토요일 0시(금요일 밤 자정)에 다음 주 식단이 자동으로 만들어져요.</p>
+
+  <h2>3단계 · 냉장고 재료 적기</h2>
+  <p><b>냉장고재료</b> 탭에 지금 집에 있는 재료를 적어요. 이걸 보고 이미 있는 재료는 장보기에서 빼줘요.</p>
+
+  <h2>4단계 · 인스타 레시피 링크 넣기</h2>
+  <ol class="rules">
+    <li>인스타에서 저장해둔 요리 릴스의 <b>링크를 복사</b>해요 (게시물 ··· → 링크 복사)</li>
+    <li><b>🍽 식단 자동화 → 링크로 레시피 추가하기</b>를 누르고 링크를 붙여넣어요</li>
+    <li>메뉴명·재료·조리법이 <b>레퍼런스레시피</b> 탭에 자동으로 정리돼요</li>
+  </ol>
+
+  <h2>5단계 · 이번 주 메뉴 고르기</h2>
+  <ol class="rules">
+    <li>레퍼런스레시피 탭에서 먹고 싶은 메뉴의 <b>이번주픽</b> 칸에 <b>먹을 횟수(1 또는 2)</b>를 적어요</li>
+    <li><b>🍽 식단 자동화 → 지금 식단 생성하기</b>를 누르면 <b>주간식단추천</b> 탭에 일주일 식단이 나와요</li>
+    <li>마음에 들면 <b>추천 확정하기</b>를 눌러요. <b>주간식단</b> 탭으로 옮겨져요</li>
+  </ol>
+
+  <h2>6단계 · 장보기 리스트 확인</h2>
+  <p><b>🍽 식단 자동화 → 장보기 리스트 생성하기</b>를 누르면 <b>장보기리스트</b> 탭에 <mark>냉장고에 없는 재료만</mark> 정리돼요. 마트 가기 전에 이 탭만 열면 끝!</p>
+  <p style="color:var(--sub);font-size:15px">일요일에 한 번에 조리해두고 싶다면 <b>밀프렙 가이드 만들기</b>를 눌러보세요. <b>일요일밑작업</b> 탭에 배치 조리 방법이 정리돼요.</p>
+
+  <h2>7단계 · 폰에서 앱처럼 쓰기 (선택)</h2>
+  <ol class="rules">
+    <li><b>확장 프로그램 → Apps Script</b> → 오른쪽 위 파란 <b>배포 → 새 배포</b></li>
+    <li>유형 선택 톱니바퀴에서 <b>웹 앱</b> → 실행: <b>나</b>, 액세스 권한: <b>나만</b> → <b>배포</b></li>
+    <li>시트로 돌아와 <b>🍽 식단 자동화 → 📱 모바일 앱 링크 만들기</b></li>
+    <li><b>레퍼런스레시피</b> 탭 맨 위(B1)에 <b>내 앱 링크</b>가 생겨요. 폰에서 열고 <b>홈 화면에 추가</b>하면 앱처럼 쓸 수 있어요</li>
+  </ol>
+  <div class="callout"><span class="ci">📱</span><div>폰에서도 시트를 만든 <b>같은 구글 계정</b>으로 로그인되어 있어야 열려요.</div></div>
+
+  <h2>우리 집에 맞게 바꾸고 싶으면</h2>
+  <ul style="padding-left:22px">
+    <li><b>주간설정</b> 탭: 주차별 예산, 밀프렙 베이스 재료, 인분 수, 단백질 우선 여부를 적을 수 있어요</li>
+    <li>기본으로 <b>목요일 점심은 배달, 토·일 점심은 외식</b>으로 잡혀 있어요 (만든 사람 우리 집 패턴이에요). 모바일 앱에서는 끼니마다 집밥·외식·배달을 눌러서 바꿀 수 있어요</li>
+    <li>같은 메뉴는 이번주픽에 적은 횟수(최대 2번)까지만 나와요</li>
+  </ul>
+  <details>
+    <summary>더 많이 바꾸고 싶다면? 클로드에게 이렇게 물어보세요</summary>
+    <div class="tog">
+      <p>클로드(claude.ai)에 시트 화면을 캡처해서 보여주며 이렇게 말하면 돼요.</p>
+      <div class="code"><div class="bar"><span>클로드에게 보낼 문구</span><button class="copy">복사</button></div><pre>구글 스프레드시트 + Apps Script로 만든 식단 관리 템플릿을 쓰고 있어.
+우리 집에 맞게 이렇게 바꾸고 싶어: (원하는 내용)
+어디를 어떻게 고치면 되는지 하나씩 알려줘.</pre></div>
+    </div>
+  </details>
+
+  <h2>막혔을 때</h2>
+  <p>오류가 뜨거나 뭔가 이상하면, 화면을 캡처해서 <a href="https://ig.me/m/hello.ont" target="_blank" rel="noopener">@hello.ont DM</a>으로 보내주시거나 클로드에게 물어보세요.</p>
+  <div class="code"><div class="bar"><span>클로드에게 보낼 문구</span><button class="copy">복사</button></div><pre>식단 관리 구글 시트를 쓰다가 이렇게 오류가 떴어. 어떻게 해야 해?
+(캡처 사진 첨부)</pre></div>
+
+  <h2>자주 나오는 어려운 말, 쉽게 뜻풀이</h2>
+  <table>
+    <tr><th>어려운 말</th><th>쉽게 말하면</th></tr>
+    <tr><td>API 키</td><td>템플릿이 클로드를 부를 때 쓰는 나만의 비밀 열쇠</td></tr>
+    <tr><td>Apify 토큰</td><td>인스타 게시물 내용을 읽어오는 도구의 비밀 열쇠</td></tr>
+    <tr><td>사본</td><td>원본을 그대로 복사한 내 것. 마음껏 고쳐도 원본은 그대로예요</td></tr>
+    <tr><td>탭</td><td>시트 아래쪽에 있는 페이지 이름표</td></tr>
+    <tr><td>컬럼(열)</td><td>엑셀의 세로 줄 하나</td></tr>
+    <tr><td>로우(행)</td><td>엑셀의 가로 줄 하나</td></tr>
+    <tr><td>체크박스</td><td>표시해서 고를 수 있는 네모 버튼</td></tr>
+  </table>
+
+  <h2>꼭 기억해야 할 규칙 3가지</h2>
+  <div class="callout yellow"><span class="ci">⚠️</span><div>
+    <ol class="rules">
+      <li><b>탭 이름은 절대 바꾸지 마세요.</b> 시트가 이름으로 탭을 찾아가는데, 이름이 바뀌면 못 찾아요.</li>
+      <li><b>칸(컬럼) 순서도 드래그로 옮기지 마세요.</b> 데이터가 섞일 수 있어요.</li>
+      <li><b>어려운 건 혼자 고치지 마세요.</b> 화면을 캡처해서 물어보는 게 제일 빠르고 안전해요.</li>
+    </ol>
+  </div></div>
+
+  <h2>정리하면</h2>
+  <div class="callout green"><span class="ci">✅</span><div>
+    <div class="flow" style="margin:4px 0 6px"><span>템플릿 사본 + 키 2개 넣기</span><i>→</i><span>링크 넣고 메뉴 체크</span><i>→</i><span>장보기 리스트 확인</span></div>
+    처음 설정만 5분, 그다음부터는 매주 메뉴만 고르면 돼요.
+  </div></div>
+
+  <hr>
+  <div class="end">
+    <p>써보셨다면 어땠는지 들려주세요.<br>막힌 곳도, 좋았던 점도 DM 한 줄이면 충분해요. 다음 버전에 그대로 반영할게요.</p>
+    <div class="end-btns">
+      <a href="https://ig.me/m/hello.ont" target="_blank" rel="noopener">💬 인스타 DM으로 후기 보내기</a>
+      <a class="ghost" href="https://instagram.com/hello.ont" target="_blank" rel="noopener">@hello.ont 팔로우하고 다음 템플릿 받기</a>
+    </div>
+    <p class="credit">만든 사람 · 온트 ONT · 개인 사용 무료 · 재판매·재배포 금지 · 소개할 때는 출처를 남겨주세요</p>
+  </div>
+</main>
+
+<script>
+document.querySelectorAll('.copy').forEach(btn=>{
+  btn.addEventListener('click',async()=>{
+    const text=btn.closest('.code').querySelector('pre').innerText;
+    try{await navigator.clipboard.writeText(text);}catch(e){
+      const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();
+    }
+    btn.textContent='복사됨';btn.classList.add('done');
+    setTimeout(()=>{btn.textContent='복사';btn.classList.remove('done');},1500);
+  });
+});
+</script>
+</body>
+</html>
