@@ -89,7 +89,7 @@
   .more li{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:15px;font-weight:600;color:var(--sub)}
 
   /* template */
-  .tpl{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}
+  .tpl{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:stretch}
   .video{aspect-ratio:16/9;background:var(--paper);border:1.5px dashed var(--line);border-radius:18px;display:flex;align-items:center;justify-content:center;color:var(--sub);text-align:center;font-size:14px;padding:20px}
   .guide-card{display:flex;flex-direction:column;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;text-decoration:none;transition:transform .15s,box-shadow .15s}
   .guide-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(43,38,32,.08)}
@@ -97,6 +97,7 @@
   .guide-card b{font-size:20px}
   .guide-card span{color:var(--sub);font-size:15px}
   .guide-card .go{color:var(--ink);font-weight:700;font-size:14px;margin-top:6px}
+  .guide-card .btn{width:100%;text-align:center;margin-top:auto}
   .video iframe{width:100%;height:100%;border:0;border-radius:18px}
   .tpl-box{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px}
   .tpl-box h3{font-size:20px;margin-bottom:8px}
@@ -128,6 +129,7 @@
     .hero{padding:48px 20px 48px;grid-template-columns:1fr;gap:28px}
     .hero-video{max-width:360px}
     .about-grid,.cards,.tpl{grid-template-columns:1fr}
+    .tpl{align-items:start}
     .log li{flex-wrap:wrap;gap:4px 12px}
     .log .d{width:100%;padding-left:70px}
   }
@@ -228,12 +230,12 @@
       <h2>무료 템플릿, 써보고 알려주세요</h2>
       <p class="sec-desc">비개발자 워킹맘이 직접 만든 템플릿이에요.</p>
       <div class="tpl">
-        <a class="guide-card" href="guide.html">
+        <div class="guide-card">
           <span class="gc-icon">📖</span>
           <b>밀플랜 가이드북</b>
           <span>준비물부터 폰에서 앱처럼 쓰기까지, 따라 하기만 하면 되게 정리했어요.</span>
-          <span class="go">가이드북 보기 →</span>
-        </a>
+          <a class="btn btn-ghost" href="guide.html">📖 가이드북 보기 →</a>
+        </div>
         <div class="tpl-box">
           <h3>🍽️ 밀플랜 템플릿</h3>
           <p style="color:var(--sub);font-size:15px">인스타 레시피 링크만 넣으면 일주일 식단과 장보기 리스트가 자동으로. 제가 모은 레시피도 들어 있어요.</p>
@@ -247,12 +249,12 @@
         </div>
       </div>
       <div class="tpl" style="margin-top:24px">
-        <a class="guide-card" href="hangul.html">
+        <div class="guide-card">
           <span class="gc-icon">📖</span>
           <b>우리 아이 한글 공책</b>
           <span>사본 만들기부터 가족 단톡방 공유까지, 따라 하기만 하면 되게 정리했어요.</span>
-          <span class="go">가이드북 보기 →</span>
-        </a>
+          <a class="btn btn-ghost" href="hangul.html">📖 가이드북 보기 →</a>
+        </div>
         <div class="tpl-box">
           <h3>✏️ 우리 아이 한글 공책</h3>
           <p style="color:var(--sub);font-size:15px">아이가 "이거 뭐야?" 하고 물어본 단어로 만드는 우리 집 단어장. 획순 보기, 따라 쓰기, 가족 공유</p>
