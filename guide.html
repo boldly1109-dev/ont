@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>밀플랜 가이드북 | 온트 ONT</title>
-<meta name="description" content="템플릿 복사하고 인스타 레시피 링크만 넣으면 일주일 식단과 장보기 리스트가 자동으로. 비개발자 워킹맘이 만든 밀플랜 템플릿 사용 가이드.">
+<meta name="description" content="템플릿 복사하고 인스타 레시피 링크만 넣으면 일주일 식단과 장보기 리스트가 자동으로. 비개발자 워킹맘이 만든 밀플랜 템플릿 사용 가이드. 인스타 레시피 계정 구독 자동수집까지.">
 <meta property="og:title" content="밀플랜 가이드북 | 온트 ONT">
-<meta property="og:description" content="인스타 레시피 링크만 넣으면 식단과 장보기 리스트가 자동으로. 비개발자 워킹맘이 만든 가이드.">
+<meta property="og:description" content="인스타 레시피 링크만 넣으면 식단과 장보기 리스트가 자동으로. 비개발자 워킹맘이 만든 가이드. 레시피 계정 구독 자동수집까지.">
 <meta property="og:locale" content="ko_KR">
 <link rel="canonical" href="https://ont-omega.vercel.app/guide.html">
 <meta property="og:url" content="https://ont-omega.vercel.app/guide.html">
@@ -82,7 +82,7 @@
 <main class="page">
   <div class="icon">🍽️</div>
   <h1>밀플랜 가이드북</h1>
-  <p class="meta">템플릿 사용 가이드 · 비개발자 워킹맘이 직접 만들고 매일 쓰는 식단 관리 · 온트 ONT</p>
+  <p class="meta">템플릿 사용 가이드 · 비개발자 워킹맘이 직접 만들고 매일 쓰는 식단 관리 · 온트 ONT · 2026.11 업데이트</p>
 
   <p>코딩 몰라도 괜찮아요. <b>제가 만든 템플릿을 복사해서 바로 쓰시면 돼요.</b><br>제가 모은 레시피도 이미 들어 있어요.</p>
 
@@ -222,6 +222,26 @@
   </ol>
   <div class="callout"><span class="ci">📱</span><div>폰에서도 시트를 만든 <b>같은 구글 계정</b>으로 로그인되어 있어야 열려요.</div></div>
 
+  <h2>8단계 · 좋아하는 레시피 계정 구독하기 (선택)</h2>
+  <p>즐겨보는 인스타 레시피 계정을 등록해 두면, 새 게시물 중 <mark>레시피만 골라</mark> 재료·조리법까지 정리해서 <b>레퍼런스레시피</b>에 <b>NEW</b>로 넣어줘요. 새 레시피가 오면 메일로도 알려줘요. 광고·일상 글은 자동으로 걸러요.</p>
+  <div class="callout"><span class="ci">📋</span><div>준비물 <b>4️⃣ Apify 토큰</b>과 <b>7단계(폰 앱)</b>가 끝나 있어야 해요.</div></div>
+  <ol class="rules">
+    <li>폰 앱 → <b>레시피 추가</b> → <b>📷 구독 계정</b></li>
+    <li>레시피 계정 아이디(@ 뒤 이름)나 프로필 주소를 넣고 <b>구독 추가</b></li>
+    <li>끝! <b>12시간마다</b> 자동으로 확인해요. 바로 보고 싶으면 <b>지금 새 레시피 확인하기</b>를 눌러요 (1~4분 걸려요)</li>
+  </ol>
+  <!-- 이미지: 구독 화면 -->
+  <div class="callout yellow"><span class="ci">⚠️</span><div>
+    게시물·릴스 링크가 아니라 <b>계정 프로필 주소</b>를 넣어야 해요. <b>공개 계정</b>만 가져올 수 있어요.<br>
+    구독을 추가하면 <b>최근 7일 안에 올라온 글부터</b> 가져와요.
+  </div></div>
+  <div class="callout"><span class="ci">💰</span><div>
+    Apify는 매달 무료 크레딧(약 $5)을 줘요. 게시물 1개당 약 $0.0017이라 <b>계정 10개 정도는 무료 크레딧 안에서 충분</b>해요.<br>
+    캡션에 재료가 거의 없는 영상은 시트에 <b>"실패(재확인 필요)"</b>로 남아요. 원본을 보고 직접 채우면 앱에 나와요.
+  </div></div>
+  <div class="callout"><span class="ci">💛</span><div><b>크리에이터를 응원해 주세요.</b> 수집한 레시피는 우리 집 식단용으로만 쓰고, 마음에 드는 레시피는 <b>📷 원본 보기</b>로 들어가 좋아요·저장을 눌러주세요. 자동수집은 크리에이터 조회수에 잡히지 않아요.</div></div>
+  <p style="color:var(--sub);font-size:15px">시트 메뉴에서도 할 수 있어요: <b>🍽 식단 자동화 → 📮 인스타 구독 자동수집 켜기</b> / <b>📮 구독 레시피 지금 확인하기</b></p>
+
   <h2>우리 집에 맞게 바꾸고 싶으면</h2>
   <ul style="padding-left:22px">
     <li><b>주간설정</b> 탭: 주차별 예산, 밀프렙 베이스 재료, 인분 수, 단백질 우선 여부를 적을 수 있어요</li>
@@ -235,6 +255,19 @@
       <div class="code"><div class="bar"><span>클로드에게 보낼 문구</span><button class="copy">복사</button></div><pre>구글 스프레드시트 + Apps Script로 만든 식단 관리 템플릿을 쓰고 있어.
 우리 집에 맞게 이렇게 바꾸고 싶어: (원하는 내용)
 어디를 어떻게 고치면 되는지 하나씩 알려줘.</pre></div>
+    </div>
+  </details>
+
+  <details>
+    <summary>🔄 예전에 템플릿을 받으셨나요? 새 기능 업데이트 방법</summary>
+    <div class="tog">
+      <ol>
+        <li>내 시트 → <b>확장 프로그램 → Apps Script</b></li>
+        <li><b>Code.gs</b>, <b>MobileApp.html</b>을 전체 선택 → 새 코드로 통째로 교체 → 저장 (새 코드는 위 버튼으로 새 템플릿 사본을 만든 뒤 그 사본의 Apps Script에서 복사해요)</li>
+        <li>파일 <b>＋ → 스크립트</b> → 이름 <b>인스타구독수집</b>으로 새로 만들고 코드 붙여넣기 → 저장</li>
+        <li><b>배포 → 배포 관리</b> → 연필 아이콘 → 버전: <b>새 버전</b> → 배포</li>
+        <li>앱이 예전 화면이면 홈 화면 앱을 완전히 닫았다가 다시 열어요</li>
+      </ol>
     </div>
   </details>
 
