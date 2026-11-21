@@ -5,24 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>우리 아이 맞춤 독서법</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 /*
-VOICE: 차분하고 믿음직한 육아 앱 — 근거는 또렷하게, 말투는 다정하게
-IDEA: 아이 책장 — 개월 수 6단계가 높이가 다른 책 6권, 우리 아이 단계의 책이 빛난다
+VOICE: 온트 사이트와 같은 목소리 — 비개발자 워킹맘의 다정한 기록, 근거는 또렷하게
+IDEA: 아이 책장 — 개월 수 6단계가 높이가 다른 책 6권, 우리 아이 단계의 책에 노란 형광펜
 PICTURE: 첫 화면과 결과 화면의 책장 그림, 선택한 단계 강조
-COLOUR/TYPE: 흰 바탕, 먹색 글자, 코랄 한 가지 강조, 딥 그린 보조 / Noto Sans KR 800·700·400
-LAYOUT: 폰 한 화면 단일 칼럼, 큰 숫자 통계 3개, 넉넉한 여백, 카드는 그림자 대신 면 색
+COLOUR/TYPE: 온트 크림·종이·먹색·노랑·갈색 / Pretendard 800·700·400
+LAYOUT: 온트 헤더 + 폰 한 화면 단일 칼럼, 종이 카드에 얇은 선
 */
-:root{color-scheme:light dark;
---bg:light-dark(#ffffff,#121212);--surf:light-dark(#f4f3f0,#1e1e1e);--surf2:light-dark(#ebe9e4,#2a2a2a);
---ink:light-dark(#1b1b1b,#f2f2f2);--mute:light-dark(#6e6e6e,#a3a3a3);--line:light-dark(#e4e2dd,#303030);
---acc:#f2643f;--acc-s:light-dark(#fff0eb,#3a2119);--grn:light-dark(#22594b,#7cc4ad);--grn-s:light-dark(#eaf3ef,#18292a)}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+:root{color-scheme:light;
+--bg:#F7F3EA;--surf:#FFFDF8;--surf2:#EFE8DA;--ink:#2B2620;--mute:#6E655A;--line:#E6DECF;
+--acc:#8A6A45;--acc-s:#FFF3C4;--yel:#FFE27A;--grn:#8A6A45;--grn-s:#FFFDF8}
 *{box-sizing:border-box;min-width:0}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Noto Sans KR",system-ui,sans-serif;overflow-x:clip;letter-spacing:-.01em}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;overflow-x:clip;word-break:keep-all}
+a{color:inherit}
+mark{background:linear-gradient(transparent 55%,var(--yel) 55%);color:inherit;padding:0 2px}
+.top{position:sticky;top:0;z-index:5;background:rgba(247,243,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .in{max-width:520px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:18px;letter-spacing:.04em;text-decoration:none}.logo span{color:var(--acc);font-weight:600;font-size:13px;margin-left:6px}
+.top a.back{font-size:14px;color:var(--mute);text-decoration:none}
 .wrap{max-width:520px;margin:0 auto;padding:clamp(20px,5vw,40px) 20px 48px}
-.brand{font-size:13px;font-weight:500;color:var(--mute);margin:0 0 18px}
+.brand{display:inline-block;font-size:13px;font-weight:700;color:var(--acc);background:var(--acc-s);padding:4px 12px;border-radius:999px;margin:0 0 18px}
 h1,h2,h3{margin:0;letter-spacing:-.03em;text-wrap:balance}
 h1{font-size:clamp(30px,8vw,38px);font-weight:800;line-height:1.2}
 h2{font-size:clamp(25px,6.6vw,30px);font-weight:800;line-height:1.25}
@@ -31,24 +35,25 @@ h3{font-size:19px;font-weight:700;margin:32px 0 10px}
 p{margin:.5em 0}
 .shelf{width:100%;height:auto;display:block;margin:24px 0 8px}
 .shelf .bk{transition:transform .5s cubic-bezier(.2,.8,.2,1),fill .4s}
-.shelf text{font:500 11px "Noto Sans KR",sans-serif;fill:var(--mute)}
-.trust{background:var(--surf);border-radius:20px;padding:20px;margin-top:20px}
+.shelf text{font:600 11px Pretendard,sans-serif;fill:var(--mute)}
+.trust{background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:20px}
 .trust h3{margin:0 0 6px;font-size:17px}
 .trust p{font-size:15px;color:var(--mute);margin:0}
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
-.stat{background:var(--bg);border-radius:14px;padding:12px 10px}
+.stat{background:var(--bg);border-radius:12px;padding:12px 10px}
 .stat b{display:block;font-size:clamp(19px,5.4vw,23px);font-weight:800;letter-spacing:-.03em;white-space:nowrap}
 .stat span{display:block;font-size:12.5px;color:var(--mute);line-height:1.4;margin-top:2px}
 .field{margin-top:28px}
 .field label{display:block;font-size:14px;font-weight:500;margin-bottom:8px}
 .inrow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:8px}
-input{font:inherit;font-size:16px;color:var(--ink);background:var(--surf);border:1.5px solid transparent;border-radius:14px;min-height:52px;padding:10px 14px;width:100%}
+input{font:inherit;font-size:16px;color:var(--ink);background:var(--surf);border:1.5px solid var(--line);border-radius:14px;min-height:52px;padding:10px 14px;width:100%}
 input:focus{border-color:var(--ink);outline:none}
+.agebox b{background:linear-gradient(transparent 55%,var(--yel) 55%)}
 .agebox{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:14px 2px 0;min-height:30px}
 .agebox b{font-size:20px;font-weight:800;white-space:nowrap}.agebox span{font-size:13px;color:var(--mute);text-align:right}
 .btn{display:block;width:100%;min-height:56px;border:0;border-radius:16px;font:inherit;font-size:16px;font-weight:700;cursor:pointer;padding:14px 16px;transition:transform .12s,background .2s}
-.btn:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
-.go{background:var(--ink);color:var(--bg);margin-top:16px}.go:disabled{background:var(--surf2);color:var(--mute);cursor:default}
+.btn:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+.go{background:var(--ink);color:#F7F3EA;margin-top:16px;border-radius:12px}.go:disabled{background:var(--surf2);color:var(--mute);cursor:default}
 .go:not(:disabled):active{transform:scale(.99)}
 .sub{background:transparent;color:var(--mute);font-weight:500;min-height:48px}
 .prog{height:4px;background:var(--surf2);border-radius:4px;overflow:hidden;margin-bottom:28px}
@@ -61,18 +66,18 @@ input:focus{border-color:var(--ink);outline:none}
 .opt.picked{border-color:var(--acc);background:var(--acc-s)}.opt.picked::after{border:6px solid var(--acc)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .chip{font-size:13px;font-weight:500;border-radius:999px;padding:4px 12px;background:var(--surf)}
-.chip.a{background:var(--acc-s);color:var(--acc)}
+.chip.a{background:var(--acc-s);color:var(--acc);font-weight:700}
 .sec{border-top:1px solid var(--line);margin-top:28px;padding-top:4px}
-.box{border-radius:16px;padding:16px 18px;margin-top:10px;background:var(--surf)}
+.box{border-radius:16px;padding:16px 18px;margin-top:10px;background:var(--surf);border:1px solid var(--line)}
 .box.g{background:var(--grn-s)}
 .box strong{display:block;font-size:15px;font-weight:700;margin-bottom:4px}
-.box.g strong{color:var(--grn)}
+.box.g strong{color:var(--acc)}
 .box ul{margin:0;padding-left:1.1em}.box li{margin:4px 0}
 .tip{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
 .tip:last-child{border-bottom:0}
 .tip i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--acc-s);color:var(--acc);font-weight:800;font-size:14px;display:grid;place-items:center}
 .tip strong{display:block;font-weight:700}.tip p{margin:2px 0 0;color:var(--mute);font-size:15px}
-.ev{font-size:14px;color:var(--mute);background:var(--surf);border-radius:14px;padding:12px 14px;margin-top:12px}
+.ev{font-size:14px;color:var(--mute);background:var(--surf2);border-radius:12px;padding:12px 14px;margin-top:12px}
 .ev b{color:var(--ink);font-weight:700}
 .mix{margin-top:14px}
 .bar{display:grid;grid-template-columns:6.5em minmax(0,1fr) 2.8em;gap:10px;align-items:center;font-size:13px;margin-top:8px;color:var(--mute)}
@@ -92,10 +97,11 @@ details p{margin:6px 0}details a{color:var(--ink);overflow-wrap:anywhere}
 </style>
 </head>
 <body>
+<header class="top"><div class="in"><a class="logo" href="../">ONT<span>온트</span></a><a class="back" href="../#works">만든 것들 보기 →</a></div></header>
 <main class="wrap">
   <section id="start">
-    <p class="brand">온트 · 엄마가 배우는 AI 육아</p>
-    <h1>우리 아이 개월 수에 맞는 독서법</h1>
+    <p class="brand">온트가 정리한 독서 가이드</p>
+    <h1>우리 아이 개월 수에 맞는<br><mark>독서법</mark></h1>
     <p class="lead">미국 소아과 의사들이 만든 독서 프로그램의 발달 단계(0~5세)를 우리말로 옮겨 정리했어요. 개월 수만 넣으면 바로 볼 수 있어요.</p>
     <svg class="shelf" id="shelf" viewBox="0 0 400 150" aria-hidden="true"></svg>
 
@@ -146,7 +152,7 @@ details p{margin:6px 0}details a{color:var(--ink);overflow-wrap:anywhere}
     </details>
   </section>
 
-  <p class="foot">만든 사람 · <a href="https://www.instagram.com/hello.ont/">@hello.ont</a></p>
+  <p class="foot">비개발자 워킹맘 온트가 만들었어요 · <a href="https://instagram.com/hello.ont">@hello.ont</a></p>
 </main>
 
 <script>
@@ -177,9 +183,9 @@ let months=null,i=0,ans=[];
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 const stage=m=>m===null?-1:AGES.findIndex(a=>m<=a.max);
 const shelf=(el,active)=>{
- const H=[52,64,78,92,106,120],C=["#e7e2d9","#ddd6ca","#d3cabb","#c8bfae","#bcb2a0","#b0a593"],W=46,G=14,x0=(400-(W*6+G*5))/2;
+ const H=[52,64,78,92,106,120],C=["#EDE6D8","#E6DECF","#DDD3C0","#D3C7B1","#C9BBA2","#BFAF94"],W=46,G=14,x0=(400-(W*6+G*5))/2;
  el.innerHTML=`<line x1="20" y1="128" x2="380" y2="128" stroke="var(--line)" stroke-width="2"/>`+AGES.map((a,k)=>{const x=x0+k*(W+G),h=H[k],on=k===active;
-  return `<g class="bk" style="transform:translateY(${on?-10:0}px)"><rect x="${x}" y="${128-h}" width="${W}" height="${h}" rx="6" fill="${on?"#f2643f":C[k]}"/><rect x="${x+8}" y="${128-h+12}" width="${W-16}" height="4" rx="2" fill="${on?"#fff":"rgba(255,255,255,.55)"}"/><rect x="${x+8}" y="${128-h+20}" width="${(W-16)*.6}" height="4" rx="2" fill="${on?"#fff":"rgba(255,255,255,.55)"}"/></g><text x="${x+W/2}" y="146" text-anchor="middle" ${on?'style="fill:var(--ink);font-weight:700"':""}>${a.s}</text>`}).join("");
+  return `<g class="bk" style="transform:translateY(${on?-10:0}px)"><rect x="${x}" y="${128-h}" width="${W}" height="${h}" rx="6" fill="${on?"#FFE27A":C[k]}" stroke="${on?"#8A6A45":"none"}" stroke-width="1.5"/><rect x="${x+8}" y="${128-h+12}" width="${W-16}" height="4" rx="2" fill="${on?"#8A6A45":"rgba(255,255,255,.6)"}"/><rect x="${x+8}" y="${128-h+20}" width="${(W-16)*.6}" height="4" rx="2" fill="${on?"#8A6A45":"rgba(255,255,255,.6)"}"/></g><text x="${x+W/2}" y="146" text-anchor="middle" ${on?'style="fill:var(--ink);font-weight:700"':""}>${a.s}</text>`}).join("");
 };
 const fmt=m=>m<24?`${m}개월`:`${m}개월 · 만 ${Math.floor(m/12)}세`;
 const setMonths=m=>{
